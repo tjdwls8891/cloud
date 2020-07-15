@@ -154,7 +154,7 @@ async def on_ready():
     # 봇 준비 시 메시지
     print("bot ready.\nBot code : Cloud")
     # 온라인 상태와 게임 메시지 설정
-    game = discord.Game("제이든이 열심히 ")
+    game = discord.Game("제이든이 열심히 개발")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
