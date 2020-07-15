@@ -1,4 +1,5 @@
 # 라이브러리 임포트
+import os
 import arrow
 import discord
 import random
