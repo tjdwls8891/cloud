@@ -7,6 +7,9 @@ import random
 # 디스코드 클라이언트 정의
 client = discord.Client()
 
+# 정보 저장 리스트 정의
+abc = ["???", "왜불러??", "???", "왜불러??", "???", "왜불러??", "???", "왜불러??", "뭐 ㅅㅂ"]
+
 
 # 문자열 관리 클래스
 class Management:
@@ -213,8 +216,9 @@ async def on_message(message):
 
     # 단순 메시지
     if not message.author.bot:
-        if message.content == "구름아":
-            await message.channel.send("???")
+        if message.content.startswith("구름") or message.content.startswith("cloud"):
+            msg = random.choice(abc)
+            await message.channel.send(msg)
 
                       
 # 봇 토큰
