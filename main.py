@@ -219,6 +219,9 @@ async def on_message(message):
         if message.content.startswith("구름") or message.content.startswith("cloud"):
             msg = random.choice(abc)
             await message.channel.send(msg)
+            
+        if message.content.startswith("쪼아요") or message.content.startswith("쫘요"):
+            await messege.channel.send("쪼아요")
 
                       
 # 봇 토큰
