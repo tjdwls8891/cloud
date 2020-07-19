@@ -3,12 +3,14 @@ import os
 import arrow
 import discord
 import random
+# from discord.ext import commands
 
 # 디스코드 클라이언트 정의
 client = discord.Client()
+# client = commands.Bot(command_prefix='!')
 
 # 정보 저장 리스트 정의
-abc = ["???", "왜불러??", "???", "왜불러??", "???", "왜불러??", "???", "왜불러??", "뭐 ㅅㅂ"]
+ans_list = ["???", "왜불러??", "머야 왜불러!", "무슨 일이야!!", "????", "흐엉??!?", "구름구름!!", "<구름 등장>", "뭐 ㅅㅂ", "뭔데!!", "ㅇ??", "무슨...일이야!!", "머야 왜!", "ㅇㅇ", "ㅇ", "??", "(무시)", "..", "흐앜 그만불러", "우앜앜", "쪼아요", "쪼아요", "앙", "흐엉?", "앙?", "그만 처 부르라고 개가튼넘아!"]
 
 
 # 문자열 관리 클래스
@@ -198,7 +200,8 @@ async def on_message(message):
 
         # 초대 링크 함수
         if message.content.startswith("!초대"):
-            embed = DiscordEmbed("https://discord.com/oauth2/authorize?client_id=732469734846627880&scope=bot", message, "초대 링크!")
+            embed = DiscordEmbed("https://discord.com/oauth2/authorize?client_id=732469734846627880&scope=bot", message,
+                                 "초대 링크!")
             await message.channel.send(embed=embed.make_embed())
 
         # 디엠 함수
@@ -217,13 +220,15 @@ async def on_message(message):
     # 단순 메시지
     if not message.author.bot:
         if message.content.startswith("구름") or message.content.startswith("cloud"):
-            msg = random.choice(abc)
+            msg = random.choice(ans_list)
             await message.channel.send(msg)
-            
-        if message.content.startswith("쪼아요") or message.content.startswith("쫘요"):
-            await messege.channel.send("쪼아요")
+            if msg == "그만 처 부르라고 개가튼넘아!":
+                await message.channel.send("야바아아아아아알")
 
-                      
+        if message.content.startswith("쪼아요") or message.content.startswith("쫘요"):
+            await message.channel.send("쪼아요")
+
+
 # 봇 토큰
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
